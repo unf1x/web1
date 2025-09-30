@@ -25,3 +25,71 @@ function renderProducts(){
   `).join('');
 }
 renderProducts();
+
+
+const CART_KEY = 'simple-shop-cart';
+let cart = loadCart();
+
+function loadCart(){
+    try { return JSON.parse(localStorage.getItem(CART_KEY)) ?? {}; }
+    catch { return {}; }
+}
+function saveCart(){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
+
+function addToCart(id){
+    cart[id] = (cart[id] ?? 0) + 1;
+    saveCart(); renderCart();
+}
+function removeFromCart(id){
+    delete cart[id];
+    saveCart(); renderCart();
+}
+function changeQty(id, delta){
+    cart[id] = Math.max(1, (cart[id] ?? 1) + delta);
+    saveCart(); renderCart();
+}
+function getProduct(id){ return PRODUCTS.find(p => p.id === id); }
+
+function renderCart(){
+    const entries = Object.entries(cart);
+    if(entries.length === 0){
+        cartListEl.innerHTML = `<li>Корзина пуста</li>`;
+        totalEl.textContent = format(0);
+        return;
+    }
+    let sum = 0;
+    cartListEl.innerHTML = entries.map(([id, qty]) => {
+        const p = getProduct(id);
+        const line = p.price * qty; sum += line;
+        return `
+      <li class="cart-item">
+        <span class="title">${p.title}</span>
+        <div class="qty">
+          <button class="icon-btn" data-act="dec" data-id="${id}">−</button>
+          <span>${qty}</span>
+          <button class="icon-btn" data-act="inc" data-id="${id}">+</button>
+          <button class="icon-btn" data-act="del" data-id="${id}" title="Удалить">✕</button>
+        </div>
+        <span class="line">${format(line)}</span>
+      </li>`;
+    }).join('');
+    totalEl.textContent = format(sum);
+}
+
+productsEl.addEventListener('click', e=>{
+    const btn = e.target.closest('.add-btn');
+    if(!btn) return;
+    addToCart(btn.dataset.id);
+});
+
+cartListEl.addEventListener('click', e=>{
+    const btn = e.target.closest('button[data-act]');
+    if(!btn) return;
+    const id = btn.dataset.id;
+    const act = btn.dataset.act;
+    if(act==='inc') changeQty(id, +1);
+    if(act==='dec') changeQty(id, -1);
+    if(act==='del') removeFromCart(id);
+});
+
+renderCart();
