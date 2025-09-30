@@ -28,3 +28,5 @@ main.container { display:grid; grid-template-columns: 1fr 320px; gap:24px; paddi
 .cart-summary { display:flex; align-items:center; justify-content:space-between; padding-top:12px; border-top:1px solid #eee; }
 
 .site-footer { background:var(--bg); padding:24px 0; margin-top:24px; color:var(--muted); }
+h1,h2,h3 { margin:0; }
+h2 { margin-bottom:10px; }
