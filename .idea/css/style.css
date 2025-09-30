@@ -19,7 +19,7 @@ main.container { display:grid; grid-template-columns: 1fr 320px; gap:24px; paddi
 .btn:disabled { opacity:.6; cursor:not-allowed; }
 .btn.secondary { background:#111; }
 
-.cart { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; height:fit-content; position:sticky; top:72px; }
+.cart { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; height:fit-content; position:sticky; top:134px; }
 .cart-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
 .cart-item { display:flex; align-items:center; gap:10px; }
 .cart-item .title { flex:1; }
