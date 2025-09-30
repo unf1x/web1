@@ -38,5 +38,23 @@
 </footer>
 
 <script src="../js/script.js" defer></script>
+<div class="modal" id="order-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="order-title">
+        <header class="modal-header">
+            <h3 id="order-title">Оформление заказа</h3>
+            <button class="icon-btn" data-close aria-label="Закрыть">✕</button>
+        </header>
+        <form id="order-form" class="form">
+            <div class="grid">
+                <label>Имя<input name="firstName" required></label>
+                <label>Фамилия<input name="lastName" required></label>
+            </div>
+            <label>Адрес доставки<textarea name="address" required rows="3"></textarea></label>
+            <label>Телефон<input name="phone" type="tel" pattern="^[0-9+\\-()\\s]{6,}$" required placeholder="+7 900 000-00-00"></label>
+            <button class="btn" type="submit">Создать заказ</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
