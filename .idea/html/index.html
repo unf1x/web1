@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simple Shop</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+        <h1>Simple Shop</h1>
+        <nav aria-label="Основная навигация">
+            <a href="#catalog">Каталог</a>
+            <a href="#cart">Корзина</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section id="catalog" aria-labelledby="catalog-title">
+        <h2 id="catalog-title">Каталог товаров</h2>
+        <div id="products" class="product-grid"></div>
+    </section>
+
+    <aside id="cart" class="cart" aria-labelledby="cart-title">
+        <h2 id="cart-title">Корзина</h2>
+        <ul id="cart-list" class="cart-list"></ul>
+        <div class="cart-summary">
+            <span>Итого: <strong id="cart-total">0 ₽</strong></span>
+            <button id="checkout-btn" class="btn" type="button">Оформить заказ</button>
+        </div>
+    </aside>
+</main>
+
+<footer class="site-footer">
+    <div class="container">© <span id="year"></span> Simple Shop</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
