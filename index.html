@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <link rel="icon" href="./assets/favicon.svg?v=2" type="image/svg+xml">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Simple Shop</title>
@@ -38,7 +39,6 @@
 </footer>
 
 
-<script src="script.js" defer></script>
 <div class="modal" id="order-modal" aria-hidden="true">
     <div class="modal-backdrop" data-close></div>
     <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="order-title">
@@ -52,10 +52,12 @@
                 <label>Фамилия<input name="lastName" required></label>
             </div>
             <label>Адрес доставки<textarea name="address" required rows="3"></textarea></label>
-            <label>Телефон<input name="phone" type="tel" pattern="^[0-9+\\-()\\s]{6,}$" required placeholder="+7 900 000-00-00"></label>
+            <label>Телефон<input name="phone" type="tel" pattern="^[0-9+\-()\s]{6,}$" required placeholder="+7 900 000-00-00"></label>
             <button class="btn" type="submit">Создать заказ</button>
         </form>
     </div>
 </div>
+<script src="./data.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
