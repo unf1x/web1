@@ -1,4 +1,4 @@
-
+const PRODUCTS = window.PRODUCTS;
 const productsEl = document.getElementById('products');
 const cartListEl = document.getElementById('cart-list');
 const totalEl = document.getElementById('cart-total');
