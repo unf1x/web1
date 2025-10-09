@@ -47,3 +47,7 @@ h2 { margin-bottom:10px; }
 .form input, .form textarea { border:1px solid #d1d5db; border-radius:8px; padding:10px; font:inherit; }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 @media (max-width:560px){ .grid { grid-template-columns:1fr; } }
+
+.brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; }
+.brand-mark { width:28px; height:28px; display:block; }
+.brand-name { font-size:1.5rem; font-weight:700; margin:0; }
